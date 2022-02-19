@@ -1,6 +1,8 @@
 package com.project.community.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +15,15 @@ import static javax.persistence.FetchType.LAZY;
 @Getter
 public class Member {
 
+    protected Member(String nickname, AccountType accountType, String email, String password, Boolean quit, LocalDateTime joinDate) {
+        this.nickname = nickname;
+        this.accountType = accountType;
+        this.email = email;
+        this.password = password;
+        this.quit = quit;
+        this.joinDate = joinDate;
+    }
+
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;
@@ -22,10 +33,18 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
 
-    private String accountId;
-    private boolean quit;
-    private LocalDateTime createDate;
+    @Column(unique = true)
+    private String email;
+    private String password;
 
-    @OneToMany(fetch = LAZY)
+    private Boolean quit;//탈퇴여부
+    private LocalDateTime joinDate;
+
+    @OneToMany(mappedBy = "member")
     private List<Like> likes = new ArrayList<>();
+
+    //==생성 메서드==//
+    public static Member createMember(String nickname, String email, String password) {
+        return new Member(nickname, null, email, password, false, LocalDateTime.now());
+    }
 }
