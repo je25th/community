@@ -37,7 +37,7 @@ public class Post {
     private List<Like> likes = new ArrayList<>();
 
     //==생성 메서드==//
-    public Post createPost(Member member, String title, String content) {
+    public static Post createPost(Member member, String title, String content) {
         return new Post(member, title, content, LocalDateTime.now());
     }
 }

@@ -1,0 +1,7 @@
+spring:
+# 테스트는 메모리모드로 실행함
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
