@@ -1,15 +1,12 @@
-package com.project.community.domain;
+package com.project.community.domain.member;
 
-import lombok.AccessLevel;
+import com.project.community.domain.post.Like;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Getter

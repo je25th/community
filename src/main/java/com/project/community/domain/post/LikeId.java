@@ -1,4 +1,4 @@
-package com.project.community.domain;
+package com.project.community.domain.post;
 
 import lombok.NoArgsConstructor;
 

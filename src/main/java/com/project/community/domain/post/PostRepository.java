@@ -1,6 +1,5 @@
-package com.project.community.repository;
+package com.project.community.domain.post;
 
-import com.project.community.domain.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

@@ -1,14 +1,10 @@
-package com.project.community.service;
+package com.project.community.domain.post;
 
-import com.project.community.domain.Member;
-import com.project.community.domain.Post;
-import com.project.community.repository.MemberRepository;
-import com.project.community.repository.PostRepository;
+import com.project.community.domain.member.Member;
+import com.project.community.domain.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)

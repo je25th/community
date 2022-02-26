@@ -1,7 +1,7 @@
-package com.project.community.service;
+package com.project.community.domain.service;
 
-import com.project.community.domain.Member;
-import com.project.community.repository.MemberRepository;
+import com.project.community.domain.member.Member;
+import com.project.community.domain.member.MemberService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,8 @@ import static org.junit.Assert.*;
 @Transactional
 public class MemberServiceTest {
 
-    @Autowired MemberService memberService;
+    @Autowired
+    MemberService memberService;
 
     @Test
     public void 회원가입() throws Exception {

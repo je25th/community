@@ -1,5 +1,6 @@
-package com.project.community.domain;
+package com.project.community.domain.post;
 
+import com.project.community.domain.member.Member;
 import lombok.Getter;
 
 import javax.persistence.*;

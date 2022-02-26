@@ -1,7 +1,8 @@
-package com.project.community.domain;
+package com.project.community.domain.post;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import com.project.community.domain.member.Member;
+import com.project.community.domain.post.LikeId;
+import com.project.community.domain.post.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

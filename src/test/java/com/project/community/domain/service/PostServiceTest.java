@@ -1,8 +1,9 @@
-package com.project.community.service;
+package com.project.community.domain.service;
 
-import com.project.community.domain.Member;
-import com.project.community.domain.Post;
-import org.junit.Assert;
+import com.project.community.domain.member.Member;
+import com.project.community.domain.post.Post;
+import com.project.community.domain.member.MemberService;
+import com.project.community.domain.post.PostService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,10 @@ import static org.junit.Assert.*;
 @Transactional
 public class PostServiceTest {
 
-    @Autowired PostService postService;
-    @Autowired MemberService memberService;
+    @Autowired
+    PostService postService;
+    @Autowired
+    MemberService memberService;
 
     @Test
     public void 글쓰기() {

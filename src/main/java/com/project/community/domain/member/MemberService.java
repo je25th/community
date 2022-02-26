@@ -1,7 +1,5 @@
-package com.project.community.service;
+package com.project.community.domain.member;
 
-import com.project.community.domain.Member;
-import com.project.community.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,8 +20,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByEmail(member.getEmail());
-        if (!findMembers.isEmpty()) {
+        if(memberRepository.findByEmail(member.getEmail()).isPresent()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
