@@ -20,9 +20,7 @@ public class LoginController {
     private final LoginService loginService;
 
     @GetMapping("/login")
-    public String loginForm(Model model) {
-
-        model.addAttribute("form", new LoginForm());
+    public String loginForm(@ModelAttribute LoginForm form) {
         return "login/login";
     }
 
@@ -36,7 +34,7 @@ public class LoginController {
 
         LoginMember login = loginService.login(form.getEmail(), form.getPassword());
         if (login == null) {
-            bindingResult.reject("loginFila", "이메일 또는 비밀번호를 확인해주세요.");
+            bindingResult.reject("loginFail", "이메일 또는 비밀번호를 확인해주세요.");
             return "redirect:/login";
         }
 

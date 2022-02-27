@@ -13,6 +13,9 @@ public class LoginService {
 
     public LoginMember login(String email, String password) {
         Member member = memberRepository.findByEmail(email).filter(m -> m.getPassword().equals(password)).orElse(null);
+        if(member == null) {
+            return null;
+        }
         return new LoginMember(member.getId(), member.getNickname(), member.getAccountType(), member.getEmail());
     }
 
