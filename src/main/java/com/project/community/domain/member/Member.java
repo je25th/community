@@ -37,9 +37,6 @@ public class Member {
     private Boolean quit;//탈퇴여부
     private LocalDateTime joinDate;
 
-    @OneToMany(mappedBy = "member")
-    private List<Like> likes = new ArrayList<>();
-
     //==생성 메서드==//
     public static Member createMember(String nickname, String email, String password) {
         return new Member(nickname, null, email, password, false, LocalDateTime.now());

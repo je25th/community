@@ -34,9 +34,6 @@ public class Post {
     private LocalDateTime updateDate;
     private LocalDateTime deleteDate;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Like> likes = new ArrayList<>();
-
     //==생성 메서드==//
     public static Post createPost(Member member, String title, String content) {
         return new Post(member, title, content, LocalDateTime.now());
