@@ -1,5 +1,6 @@
 package com.project.community.domain.post;
 
+import com.project.community.domain.BaseEntity;
 import com.project.community.domain.member.Member;
 import lombok.Getter;
 
@@ -10,13 +11,12 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Post {
+public class Post extends BaseEntity {
 
     protected Post(Member member, String title, String content, LocalDateTime createDate) {
         this.member = member;
         this.title = title;
         this.content = content;
-        this.createDate = createDate;
     }
 
     @Id @GeneratedValue
@@ -30,8 +30,6 @@ public class Post {
     private String title;
     private String content;
 
-    private LocalDateTime createDate;
-    private LocalDateTime updateDate;
     private LocalDateTime deleteDate;
 
     //==생성 메서드==//

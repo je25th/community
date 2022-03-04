@@ -1,5 +1,6 @@
 package com.project.community.domain.post;
 
+import com.project.community.domain.BaseEntity;
 import com.project.community.domain.member.Member;
 import com.project.community.domain.post.LikeId;
 import com.project.community.domain.post.Post;
@@ -15,7 +16,7 @@ import static javax.persistence.FetchType.*;
 @Table(name = "likes")
 @Getter
 @NoArgsConstructor
-public class Like {
+public class Like extends BaseEntity {
 
     @EmbeddedId
     private LikeId id;
@@ -29,7 +30,5 @@ public class Like {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
-
-    private LocalDateTime createDate;
 
 }

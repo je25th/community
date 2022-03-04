@@ -1,5 +1,6 @@
 package com.project.community.domain.member;
 
+import com.project.community.domain.BaseEntity;
 import com.project.community.domain.post.Like;
 import lombok.Getter;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Member {
+public class Member extends BaseEntity {
 
     protected Member(String nickname, AccountType accountType, String email, String password, Boolean quit, LocalDateTime joinDate) {
         this.nickname = nickname;

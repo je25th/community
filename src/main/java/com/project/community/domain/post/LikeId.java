@@ -21,7 +21,7 @@ public class LikeId implements Serializable {
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
-        if(obj == null || getClass() != obj.getClass()) return false;
+        if(obj == null || !(this instanceof LikeId)) return false;
         LikeId likeId = (LikeId) obj;
         return this.memberId == likeId.memberId && this.postId == likeId.postId;
     }
