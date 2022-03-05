@@ -14,15 +14,15 @@ public class LikeId implements Serializable {
     private Long postId;
 
     @Override
-    public int hashCode() {
-        return Objects.hash(memberId, postId);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LikeId likeId = (LikeId) o;
+        return Objects.equals(memberId, likeId.memberId) && Objects.equals(postId, likeId.postId);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(obj == null || !(this instanceof LikeId)) return false;
-        LikeId likeId = (LikeId) obj;
-        return this.memberId == likeId.memberId && this.postId == likeId.postId;
+    public int hashCode() {
+        return Objects.hash(memberId, postId);
     }
 }
