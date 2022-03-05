@@ -13,16 +13,24 @@ public class LikeId implements Serializable {
     private Long memberId;
     private Long postId;
 
+    public Long getMemberId() {
+        return memberId;
+    }
+
+    public Long getPostId() {
+        return postId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LikeId likeId = (LikeId) o;
-        return Objects.equals(memberId, likeId.memberId) && Objects.equals(postId, likeId.postId);
+        return Objects.equals(getMemberId(), likeId.getMemberId()) && Objects.equals(getPostId(), likeId.getPostId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(memberId, postId);
+        return Objects.hash(getMemberId(), getPostId());
     }
 }
