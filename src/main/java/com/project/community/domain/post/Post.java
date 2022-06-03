@@ -17,6 +17,7 @@ public class Post extends BaseEntity {
         this.member = member;
         this.title = title;
         this.content = content;
+        this.createDate = createDate;
     }
 
     @Id @GeneratedValue
@@ -30,6 +31,7 @@ public class Post extends BaseEntity {
     private String title;
     private String content;
 
+    private LocalDateTime createDate;
     private LocalDateTime deleteDate;
 
     //==생성 메서드==//

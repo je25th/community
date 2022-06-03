@@ -1,6 +1,7 @@
 package com.project.community.domain.service;
 
 import com.project.community.domain.member.Member;
+import com.project.community.domain.post.Like;
 import com.project.community.domain.post.Post;
 import com.project.community.domain.member.MemberService;
 import com.project.community.domain.post.PostService;
@@ -11,6 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -42,5 +46,22 @@ public class PostServiceTest {
         assertEquals("제목", title, post.getTitle());
         assertEquals("내용", content, post.getContent());
         assertNotNull("작성일시가 null이 아님", post.getCreateDate());
+    }
+
+    @Test
+    public void 좋아요() {
+        //given
+        Member member = Member.createMember("유저1", "email@domain.com", "password");
+        memberService.join(member);
+        Long postId = postService.write(member.getId(), "제목", "내용");
+        Post post = postService.findOne(postId);
+
+        //when
+        Long likeId = postService.likeThis(member.getId(), post.getId());
+
+        //then
+        List<Like> likes = postService.findAllLikeByPostId(post.getId());
+
+        assertThat(likes).filteredOn(l -> l.getId().equals(likeId));
     }
 }
